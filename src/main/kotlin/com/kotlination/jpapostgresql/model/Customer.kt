@@ -7,6 +7,8 @@ class Customer(
 		@EmbeddedId val customerId: CustomerId? = null) {
 	
 	private constructor() : this(CustomerId("",""))
-	constructor(name: String, surname: String, email: String) : this()
+
+	@OneToOne
+	val sales : Sale? = null
 
 }

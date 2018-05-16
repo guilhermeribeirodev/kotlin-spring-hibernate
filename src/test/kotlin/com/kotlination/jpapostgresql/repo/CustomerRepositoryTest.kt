@@ -6,6 +6,7 @@ import org.hamcrest.MatcherAssert.assertThat
 import org.hamcrest.core.Is.`is`
 import org.junit.Test
 import org.junit.runner.RunWith
+import org.mockito.Matchers.notNull
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.test.context.junit4.SpringRunner
@@ -29,6 +30,12 @@ class CustomerRepositoryTest {
         val it: Iterable<Customer> = repository.findAll()
         it.forEach( Consumer { x -> print(x)  })
         assertThat(it.count(), `is`(3))
+    }
+
+    @Test
+    fun findCustomerAndLast5Sales() {
+        val it: Iterable<Customer> = repository.findAll()
+        it.forEach( Consumer { x -> print(x);  assertThat(x.sales, `is`(notNull())) })
     }
 
 }

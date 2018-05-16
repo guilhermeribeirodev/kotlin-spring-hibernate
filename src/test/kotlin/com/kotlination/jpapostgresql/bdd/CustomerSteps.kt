@@ -8,12 +8,13 @@ import cucumber.api.java.en.Then
 import cucumber.api.java.en.When
 import org.hamcrest.MatcherAssert.assertThat
 import org.hamcrest.Matchers.`is`
+import org.junit.runner.RunWith
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
+import org.springframework.test.context.junit4.SpringRunner
 
-@SpringBootTest
 
-class CustomerSteps {
+class CustomerSteps : CucumberRoot() {
 
     private lateinit var customer: Customer
     @Autowired

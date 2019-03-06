@@ -28,10 +28,9 @@ class SaleRepositoryTest {
             repository.save(Sale(product = "prod "+i, customer = customer))
         }
 
-
-//        val it: Iterable<Sale> = repository.findAll()
-//        it.forEach(Consumer<Sale> { x -> print(x) })
-//        assertThat(it.count(), `is`(1))
+        val it: Iterable<Sale> = repository.findAll()
+        it.forEach(Consumer<Sale> { x -> print(x) })
+        assertThat(it.count(), `is`(400))
 
         var sale = saleEntity.find("surname 66") as Sale
         try{

@@ -1,6 +1,7 @@
 package com.kotlination.jpapostgresql.repo
 
 import com.kotlination.jpapostgresql.model.Customer
+import com.kotlination.jpapostgresql.model.CustomerId
 import com.kotlination.jpapostgresql.service.CustomerService
 import org.hamcrest.MatcherAssert.assertThat
 import org.hamcrest.core.Is.`is`
@@ -24,9 +25,9 @@ class CustomerRepositoryTest {
 
     @Test
     fun saveCustomerTest() {
-//        repository.save(Customer(firstName = "asd", lastName = "asd"))
-//        repository.save(Customer(firstName = "asd", lastName = "asd"))
-//        repository.save(Customer(firstName = "asd", lastName = "asd"))
+        repository.save(Customer(CustomerId( firstName = "asd", lastName = "asd")))
+        repository.save(Customer(CustomerId( firstName = "asd2", lastName = "asd2")))
+        repository.save(Customer(CustomerId( firstName = "asd3", lastName = "asd3")))
         val it: Iterable<Customer> = repository.findAll()
         it.forEach( Consumer { x -> print(x)  })
         assertThat(it.count(), `is`(3))
